@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import ItemList from './itemList';
-import { numbers, operators, equals, clear, sin } from './numbers';
+import { numbers, operators, equals, clear } from './numbers';
 import './App.css';
 
 const App = () => {
-  const [answer, setAnswer] = useState();
   const [cart, setCart] = useState([]);
 
   const addItem = (item) => {
@@ -16,36 +15,38 @@ const App = () => {
   }
 
   const doEquals = () => {
-    setAnswer(eval(cart.join('')));
     setCart([eval(cart.join(''))]);
   }
 
   const doClear = () => {
     setCart([]);
-    setAnswer([]);
   }
 
   return (
-    <div>
+    <div className='total'>
       <h1>Basic Calculator Web App</h1>
-      <h1 className="answer">{answer}</h1>
-      <ul className="preMath">
-        {cart.map((item, index) => (
-          <li onClick={() => removeItem(index)} key={index}>
-            {item}
-          </li>
-        ))}
-      </ul>
-      <div className="buttons">
-        <div className="numbers">
-          <ItemList items={numbers} onItemClick={addItem} />
-        </div>
-        <div className="operators">
-          <ItemList items={operators} onItemClick={addItem} />
+      <div className="calculator">
+        <div className="buttons">
+          <div className="numbers">
+            <ul className="preMath">
+              {cart.map((item, index) => (
+                <li onClick={() => removeItem(index)} key={index}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <ItemList items={numbers} onItemClick={addItem} />
+            <h2>By Nicholas Quisler</h2>
+          </div>
+          <div className="operators">
+            <ItemList items={clear} onItemClick={doClear} />
+            <p className="gap"></p>
+            <ItemList items={operators} onItemClick={addItem} />
+            <p className="gap"></p>
+            <ItemList items={equals} onItemClick={doEquals} />
+          </div>
         </div>
       </div>
-      <ItemList items={equals} onItemClick={doEquals} />
-      <ItemList items={clear} onItemClick={doClear} />
     </div>
   )
 }

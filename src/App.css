@@ -1,15 +1,35 @@
 * {
   text-align: center;
+  text-shadow: #000 0px 0px 1px;
+}
+
+h1 {
+  color: white;
+  margin-top: 10%;
+}
+
+body {
+  background-image: url(../images/numbers.jpg);
+}
+
+.calculator {
+  background-color: orange;
+  width: 368px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+}
+
+button {
+  color: white;
+  background-color: rgb(233, 185, 81);
+  font-size: larger;
 }
 
 li  {
-  display: inline;
+  display: flex;
   list-style-type: none;
-}
-
-.answer {
-  height: 50px;
-  background-color: brown;
+  align-items: center;
 }
 
 .preMath {
@@ -17,7 +37,15 @@ li  {
   display: flex;
   justify-content: center;
   padding-left: 0;
-  background-color: aqua;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  /* overflow-x: scroll; */
+  width: 100%;
+}
+
+.gap {
+  height: 26px;
+  margin: 0;
 }
 
 .buttons {
@@ -31,8 +59,16 @@ li  {
   grid-template-rows: repeat(4, 34px);
 }
 
-.operators div {
-  display: grid;
-  grid-template-columns: 83px;
-  grid-template-rows: repeat(4, 34px);
+.operators {
+  margin-top: 22px;
+  margin-bottom: 18px;
+}
+
+.operators div button {
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 34px;
+  width: 83px;
 }
