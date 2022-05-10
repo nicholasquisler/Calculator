@@ -15,7 +15,9 @@ const App = () => {
   }
 
   const doEquals = () => {
-    setCart([eval(cart.join(''))]);
+    let string = cart.join('');
+    let newString = string.replace('--','+');
+    setCart([eval(newString)]);
   }
 
   const doClear = () => {
