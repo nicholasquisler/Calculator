@@ -16,7 +16,7 @@ const App = () => {
 
   const doEquals = () => {
     let string = cart.join('');
-    let newString = string.replace('--','+');
+    let newString = string.replaceAll('--','+');
     setCart([eval(newString)]);
   }
 
